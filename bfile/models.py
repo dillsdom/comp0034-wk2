@@ -2,7 +2,7 @@
 from typing import List
 from sqlalchemy import Integer, String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from paralympics import db
+from bfile import db
 
 
 # This uses the latest syntax for SQLAlchemy, older tutorials will show different syntax

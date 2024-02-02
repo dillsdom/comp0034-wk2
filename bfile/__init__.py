@@ -17,7 +17,7 @@ def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(
         SECRET_KEY='cExf9s1CqdAR6sAfDTZLSA',
-       SQLALCHEMY_DATABASE_URI="sqlite:///" + os.path.join(app.instance_path, 'paralympics.sqlite'),
+       SQLALCHEMY_DATABASE_URI="sqlite:///" + os.path.join(app.instance_path, 'bfile.sqlite'),
        SQLALCHEMY_ECHO=True,
     )
 
@@ -36,13 +36,13 @@ def create_app(test_config=None):
 
     # Models are defined in the models module, so you must import them before calling create_all, otherwise SQLAlchemy
     # will not know about them.
-    from paralympics.models import User, Region, Event
+    from bfile.models import User, Region, Event
     # Create the tables in the database
     # create_all does not update tables if they are already in the database.
     with app.app_context():
         db.create_all()
 
         # Register the routes with the app in the context
-        from paralympics import paralympics
+        from bfile import paralympics
 
     return app
